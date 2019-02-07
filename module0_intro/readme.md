@@ -18,8 +18,7 @@ Your task include the free part only.
 ## Advanced
 - [GitHub for Noobs - Using the Command Line](https://www.youtube.com/watch?v=JPKOESR1k04)
 - Follow the course [Intro to JavaScript](https://www.udacity.com/course/intro-to-javascript--ud803).
-  You can skip the first 5 levels and go through level 6 (Arrays) and 7 (Object)
-  
+
 ## Mobile application
 ### Download to your phone and play as you go
 - [grasshopper](https://grasshopper.codes/) - basics
