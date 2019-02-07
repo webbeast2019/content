@@ -21,7 +21,7 @@ Your task include the free part only.
 
 ## Mobile application
 ### Download to your phone and play as you go
-- [grasshopper](https://grasshopper.codes/) - basics
+- [Grasshopper](https://grasshopper.codes/) - basics
 - Learn JavaScript (basic to advanced) - [Android](https://play.google.com/store/apps/details?id=com.sololearn.javascript&hl=en) | [IPhone](https://itunes.apple.com/us/app/learn-javascript/id952738987)
 
 
