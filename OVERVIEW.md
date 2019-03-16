@@ -25,7 +25,9 @@ This document contains description of the webbeast training program.
 Note: `Extra !== Advanced`
 
 ### The content Repo
-    See *README.md*
+    - A word about reveal-md and course slides
+    - Module content and pre/self sections
+    - See *README.md*
 
 ### Coding
 - Using code from outer sources (posts, stackoverflow etc.) is more than allowed
