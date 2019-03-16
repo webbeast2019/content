@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>First Demo</title>
+	<meta charset="UTF-8">
+	<meta name="author" content="Yuval Bar Levi">
+	<meta name="keywords" content="HTML,CSS,JavaScript">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--<meta http-equiv="refresh" content="5">-->
+	<link rel="stylesheet" type="text/css" href="first_page_styles.css">
+	<script>
+		/*
+
+		 Hello HTML
+			 HTML rules and semantics
+			 they are so many of them... don't get confused!
+			 doctype
+			 head (base, meta, title, link, script)
+			 body  flow ( block vs inline )
+			 elements semantics (a,img, lists, header, footer, nav,h1-h6, p, i, div, span, select, input etc)
+
+
+
+		 Hello CSS
+			 Cascading means...?
+			 CSS selectors and points
+			 display property (again - block vs inline, and more!)
+			 box model
+			 body  flow (block vs inline)
+			 elements semantics (h1-6, p, div, span etc)
+		 */
+	</script>
+	<style>
+			h1 {
+				font-size: 30px;
+			}
+			body {
+				color: #3a3a8c;
+				font-family: sans-serif;
+			}
+			p {
+				display: inline;
+				margin: 10px;
+				font-size: 5vw;
+			}
+			button {
+				display: block;
+				padding: 10px;
+				color: white;
+				border-radius: 4px;
+				text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+				background-color: rgb(66, 184, 221);
+				text-decoration: none;
+				border: transparent;
+				cursor: pointer;
+				outline: none;
+			}
+	</style>
+</head>
+<body>
+	<h1>My first page</h1>
+	<h2>some h2 text</h2>
+	<p>
+		first p<br>
+	</p>
+	<p>
+		second p
+	</p>
+	<h3>elements you should know:</h3>
+	<ul>
+		<li>
+			<a href="https://developer.mozilla.org/he/">anchor tag</a>
+		</li>
+		<li>
+			img
+		</li>
+		<li>lists</li>
+		<li>header / footer / nav</li>
+		<li>h1-h6</li>
+		<li>p</li>
+		<li>i</li>
+		<li>div</li>
+		<li>span</li>
+		<li>
+			<form>
+				input:
+				<ol>
+					<li>
+						<input>
+					</li>
+					<li>
+						<label for="input1">type number</label> <input type="number" id="input1">
+					</li>
+					<li>
+						type date <input type="date">
+					</li>
+					<li>
+						type password <input type="password">
+					</li>
+					<li>
+						type color <input type="color">
+					</li>
+				</ol>
+			</form>
+		</li>
+		<li>
+			<form>
+				select:
+				<select>
+					<option value="1">op 1</option>
+					<option value="42">op 2</option>
+				</select>
+			</form>
+		</li>
+	</ul>
+	<button onclick="btnClick('Hi')">button</button>
+	<p>
+		This too shall change:
+		<span id="contentHolder"></span>
+	</p>
+<script>
+/*
+   Console demos
+ - Data types: Undefined, Null, Boolean, Number, String, Symbol, Object
+ - Variables: var / const / let
+ - Loops: while, for, forEach (avoid using for in)
+ - Comparing types
+ - Objects: literals, constructor, nested properties
+ - Arrays
+ - Functions
+ - DOM
+ */
+
+//'use strict'
+someVar0 = 30;
+var someVar1 = 30;
+const someVar2 = 30;
+let someVar3 = 30;
+//
+//for(let i = 0; i < 3; i++) {
+//
+//}
+//for(; someVar3 < 35; someVar3++) {
+//
+//}
+//const _myArray = [3,4,6];
+//_myArray .forEach(function (cell) {
+//	console.log(cell)
+//});
+//
+//console.log('compare1:', 3 == '3');
+//console.log('compare2:', 3 === '3');
+//console.log('compare3:', null == undefined);
+//console.log('compare3:', null === undefined);
+//
+//const obj = {
+//	prop1: 1,
+//	prop2: 'string',
+//	prop3: {
+//
+//	}
+//};
+//
+//function typeA() {
+//	this.x = 100;
+//}
+//
+//typeA.prototype.toString = function () {
+//	return 'this is my x: ' + this.x;
+//};
+//
+//const instanceA = new typeA();
+//instanceA.x = 105;
+//
+//console.log(instanceA);
+//console.log(instanceA.toString());
+
+//function foo(a, b) {
+//	// what if these are not numbers?
+//	return a * b + b;
+////}
+//
+//function btnClick(a) {
+////	alert(a);
+//	const val = document.getElementById('input1').value;
+//	console.log(val)
+//	if(val > 10) {
+//		document.getElementById('contentHolder').innerHTML = 'value is : '+ val;
+//	}
+//}
+</script>
+</body>
+</html>
