@@ -24,7 +24,8 @@ Repo structure is as following:
 ### [Module 0 - Intro](/module0_intro/readme.md)
 
 ### Module 1 - Fundamentals
-Will be updated as we go
+1. [Web Introduction](https://github.com/webbeast2019/content/blob/master/module1_fundamentals/m1.lesson01.md)
+1. [CSS 1 & Javascript basics 1](https://github.com/webbeast2019/content/blob/master/module1_fundamentals/m1.lesson01.md)
 
 ---
 

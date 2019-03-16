@@ -39,6 +39,7 @@ Note: `Extra !== Advanced`
 
 ### Delivering a task
 - PR (for small tasks) - each PR should be also as a personal repo.
+- PR for a shared exercise repo should be named: `the-task-name(myname)`
 - A personal repo (for tasks with lots of code / projects)
 - A project (Solo or Team) should also be managed using github tools
 
