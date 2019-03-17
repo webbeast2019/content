@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>More DOM manipulation</title>
+    <meta charset="UTF-8">
+    <style>
+        li.option {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+<h1>More DOM manipulation</h1>
+<button>Just a button</button>
+<div id="outputDiv">Just an ordinary Div</div>
+<ul id="outputList">Just an empty list</ul>
+
+<template id="option-template">
+    <li class="option">
+        <input type="radio" name="movies">
+        <label></label>
+    </li>
+</template>
+
+<script>
+    /*
+2. Advanced DOM manipulation (innerHTML = string, templates, templates literals)
+3. ES6 tips:  , Property Shorthand, Destructuring, spread
+Events
+     */
+
+    'use strict';
+    const dataObj = {
+        name: 'inigo montoya',
+        quote: 'Hello. My name is Inigo Montoya. You killed my father. Prepare to die.'
+    };
+
+    // innerHTML = string
+    document.getElementById('outputDiv').innerHTML = '<input type="color">';
+
+    // es6 templates literals
+    document.getElementById('outputDiv').innerHTML = `
+        <h2>${dataObj.name}</h2>
+        <blockquote>${dataObj.quote}</blockquote>
+    `;
+
+    // DOM fragments
+    // https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment
+    const fragment = document.createDocumentFragment();
+    const container  = document.getElementById('outputDiv'); // assuming ul exists
+    const movies = ['', 'Reloaded', 'Revolutions'];
+
+    movies.forEach(function(movie) {
+        const p = document.createElement('li');
+        p.textContent = 'The Matrix' + (movie ? ' : ' + movie: '');
+        fragment.appendChild(p);
+    });
+
+    container.appendChild(fragment);
+
+
+    // html templates
+    const template = document.getElementById('option-template');
+    const listContainer  = document.getElementById('outputList');
+    const someMovies = ['Reservoir Dogs', 'Pulp Fiction', 'Kill Bill'];
+
+    someMovies.forEach((text, index) => {
+        const newNode = template.content.cloneNode(true);
+        newNode.querySelector('label').textContent  = `${index} : ${text}`;
+        listContainer.appendChild(newNode);
+    });
+
+
+    // ========== start working on cards memory-game ==========
+
+    const btn = document.querySelector('button');
+
+//    btn.onclick = function() {
+//        const target = document.getElementById('outputDiv');
+//        target.style.backgroundColor = 'lightGray';
+//    };
+
+    function bgChange() {
+        const target = document.getElementById('outputDiv');
+        target.style.backgroundColor = 'lightGray';
+    }
+
+    btn.addEventListener('click', bgChange);
+
+</script>
+</body>
+
+</html>

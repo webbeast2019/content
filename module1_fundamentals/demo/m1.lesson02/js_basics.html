@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>First Demo</title>
+    <meta charset="UTF-8">
+    <script>
+
+    </script>
+</head>
+
+<body>
+<script>
+    /*
+    - flow
+    - switch
+    - strings
+    - Math
+    - object types
+    - functions
+     */
+
+    'use strict';
+
+    // basic flow
+    let age = 33;
+    if (age > 18) {
+        console.log('can work');
+    } else if (age > 15) {
+        console.log('can work after school');
+    } else {
+        console.log('cannot work');
+    }
+
+    // switch
+    let day;
+    switch (new Date().getDay()) {
+        case 5:
+            day = 'Friday';
+            break;
+        case 6:
+            day = 'Saturday';
+            break;
+        default:
+            day = 'Weekday';
+    }
+
+    // strings
+    const str1 = 'This is Sparta!';
+    str1.toLowerCase();
+    str1.replace('i', '*');
+    str1.toLowerCase().replace('t', '*');
+    str1.toLowerCase().replace('t', '*').replace('t', '*');
+    str1.replace(/t/ig, '*');
+    str1.charAt(2);
+    str1[2];
+    str1.substr(2, 4);
+    str1.charCodeAt(3);
+    String.fromCodePoint(84);
+
+    // ========== break - encryption exercises ==========
+
+    // math
+    Math.floor(-5.05);
+    Math.abs(-5.05);
+    Math.random();
+    Math.round(Math.random());
+    Math.random().toString(15).substr(2);
+
+
+    // everything is an object... object types
+    const o1 = new Object();	// or {}...
+    const o2 = function abc() {
+        return 'hello world';
+    };
+    const o3 = new Number(30);
+    const o4 = new String('Hello World');
+    const o5 = new Boolean(true);
+    const o6 = new Map();
+    o6.set('id-123', o1);
+
+    // let try: typeof, add a property/method,  toString, valueOf, hasOwnProperty, Object.keys
+
+    // a bit about inheritance - es6 way
+    class Person {
+        constructor(age) {
+            this.age = age;
+        }
+
+        speak() {
+            console.log('I am ' + this.age + ' years old');
+        }
+    }
+
+    class Worker extends Person {
+        constructor(age, work) {
+            super(age);
+            this.work = work;
+        }
+
+        speak() {
+            console.log('I am ' + this.age + ' years old and I work as ' + this.work);
+        }
+    }
+
+    // const david = new Person(20, ' fireman');
+    // const moshe = new Worker(21, ' fireman');
+    // const max = new Worker(22);
+    // add defaults work = superhero
+    // moshe instanceof Person
+    // moshe instanceof Worker
+    // david instanceof Person
+    // david instanceof Worker
+
+
+    // functions
+
+
+    // wrap up
+    const compare = function (choice1, choice2) {
+        const options = ['rock', 'paper', 'scissors'];
+        const result = options.indexOf(choice1) - options.indexOf(choice2);
+        switch (result) {
+            case 1:
+            case -2:
+                //choice1 wins
+                break;
+            case 0:
+                //tie
+                break;
+            case -1:
+            case 2:
+                //choice2 wins
+                break;
+        }
+    };
+
+    // functions
+
+    // 1. function declaration
+    // 2. function expression
+    // 3. arrow functions
+    // 4. anonymous functions
+    // 5. parameters default value
+
+    function foo1(a, b, c) {
+        // available anywhere in page
+        console.log('foo');
+        return 'some return value';
+    }
+
+    // can be called only after definition
+    const foo2 = function (a, b, c) {
+        console.log('foo');
+    };
+
+    // can be called only after definition
+    const foo3 = (a, b, c) => {
+        console.log('foo');
+    };
+
+    (function (a = 4) {
+        // available anywhere in page
+        console.log('foo' + a);
+    })(1);
+
+    // ========== start working on cards memory-game ==========
+
+
+</script>
+</body>
+
+</html>
