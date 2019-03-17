@@ -25,7 +25,9 @@ Repo structure is as following:
 
 ### Module 1 - Fundamentals
 1. [Web Introduction](https://github.com/webbeast2019/content/blob/master/module1_fundamentals/m1.lesson01.md)
-1. [CSS 1 & Javascript basics 1](https://github.com/webbeast2019/content/blob/master/module1_fundamentals/m1.lesson01.md)
+2. [CSS 1 & Javascript basics 1](https://github.com/webbeast2019/content/blob/master/module1_fundamentals/m1.lesson02.md)
+3. [CSS 2 & Javascript basics 2](https://github.com/webbeast2019/content/blob/master/module1_fundamentals/m1.lesson03.md)
+4. [Javascript advanced functionality](https://github.com/webbeast2019/content/blob/master/module1_fundamentals/m1.lesson04.md)
 
 ---
 
