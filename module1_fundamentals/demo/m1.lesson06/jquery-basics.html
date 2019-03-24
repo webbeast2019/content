@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery basics</title>
+    <style>
+        body{
+            padding: 20px;
+        }
+        p {
+            padding:10px;
+            margin:0 10px;
+            border: 1px dashed gray;
+        }
+        header{
+            height: 80px;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        'use strict';
+
+        $(function () {
+            const $content = $("section");
+            const $h1 = $("h1").hide();
+            $("p:last").addClass("highlight");
+
+
+            $("button.add-content").on('click', function () {
+                $content.append('<p>More Turtles!</p>');
+//                $content.prepend('<p>More Turtles!</p>');
+
+//                $newElem = $("<p>More Turtles!</p>");
+//                $newElem.css({
+//                    height: 40,
+//                    backgroundColor: 'green',
+//                });
+//                $content.append($newElem);
+            });
+
+            $("button.change-content").on('click', function () {
+                $content.find("p").text('A Turtle');
+            });
+
+            $("button.toggle-title").on('click', function () {
+                // toggle title
+                $h1.slideToggle( 'slow' );
+                $h1.toggleClass('active');
+
+                // change button text by current state
+                if($h1.hasClass('active')) {
+                    $(this).text('Hide Title');
+                } else {
+                    $(this).text('Show Title');
+                }
+            });
+
+//                $div = $("<div></div>").css({
+//                    height: 20,
+//                    width: 20,
+//                    backgroundColor: 'green',
+//                });
+//                this.append($div);
+//
+//            $content.mole();
+        });
+    </script>
+</head>
+<body>
+
+    <header>
+        <button class="add-content">Add Content</button>
+        <button class="change-content">Change Content</button>
+        <button class="toggle-title">Show Title</button>
+        <h1>Hello JQuery</h1>
+    </header>
+    <section>
+        <p>Leonardo</p>
+        <p>Donatello</p>
+        <p>Raphael</p>
+        <p>Michelangelo</p>
+    </section>
+
+</body>
+</html>
