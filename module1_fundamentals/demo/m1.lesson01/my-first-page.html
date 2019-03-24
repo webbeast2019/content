@@ -55,17 +55,25 @@
 				cursor: pointer;
 				outline: none;
 			}
+			button#daniel {
+				background-color: green;
+			}
+
+			button.boaz {
+				background-color: black;
+			}
 	</style>
 </head>
 <body>
 	<h1>My first page</h1>
-	<h2>some h2 text</h2>
+	<h2>some <strong>h2</strong> text</h2>
 	<p>
 		first p<br>
 	</p>
 	<p>
 		second p
 	</p>
+<div>1</div><div>2</div>
 	<h3>elements you should know:</h3>
 	<ul>
 		<li>
@@ -86,7 +94,7 @@
 				input:
 				<ol>
 					<li>
-						<input>
+						<input type="text">
 					</li>
 					<li>
 						<label for="input1">type number</label> <input type="number" id="input1">
@@ -113,7 +121,7 @@
 			</form>
 		</li>
 	</ul>
-	<button onclick="btnClick('Hi')">button</button>
+	<button onclick="btnClick('Hi')" id="daniel" class="boaz">button</button>
 	<p>
 		This too shall change:
 		<span id="contentHolder"></span>
@@ -188,6 +196,9 @@ let someVar3 = 30;
 //		document.getElementById('contentHolder').innerHTML = 'value is : '+ val;
 //	}
 //}
+
+	// We can do almost anything with JS - the window object
+	// window.alert = console.log('foo')
 </script>
 </body>
 </html>

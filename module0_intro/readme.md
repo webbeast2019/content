@@ -12,7 +12,7 @@ Your task include the free part only.
 4. [Learn javascript introduction](https://www.codecademy.com/learn/introduction-to-javascript) - click 'start' button
 5. Do some javascript [Practice](https://www.learn-js.org/)
 6. [GitHub for Noobs - Common Workflows](https://www.youtube.com/watch?v=_ALeswWzpBo)
-7. [Try git](https://try.github.io/levels/1/challenges/1)
+7. [Katakoda interactive git](https://www.katacoda.com/courses/git/)
 
 
 ## Advanced

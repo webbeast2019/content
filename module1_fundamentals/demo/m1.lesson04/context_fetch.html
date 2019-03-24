@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>advanced js</title>
+    <meta charset="UTF-8">
+    <style>
+        .user-card {
+            display: flex;
+            padding: 5px;
+            border: 2px gray dashed;
+        }
+
+        .user-card img {
+            height: 100px;
+        }
+
+        .user-card p {
+            font-weight: 800;
+            font-family: sans-serif;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<button>Click Me</button>
+<button>Click Me Too</button>
+<button class="fetch">Click to Fetch</button>
+<p class="output"></p>
+<script>
+    /*
+    - context
+    - ajax
+     */
+
+    'use strict';
+    const str = 'hello global scope';
+    console.log(str);    //hello global scope
+
+    function foo() {
+        const str = 'hello foo scope';
+        console.log(str);
+    }
+
+    foo(); //hello foo scope
+
+
+    const test = {
+        prop: 42,
+        func: function (extraStr1 = '', extraStr2 = '') {
+            console.log(this.prop + ' ' + extraStr1 + ' ' + extraStr2);
+        },
+    };
+
+    //    test.func();   // 42
+    //    test.prop = 44;
+    //    test.func();   // 44
+
+    const test2 = {prop: 100};
+    //    test.func.call(test2, 'Bugs', 'Bunny');
+    //    test.func.apply(test2, ['Bugs', 'Bunny']);
+
+    const test3 = test.func.bind(test2);
+    test3();
+
+    // try it: create  3 Child objects which toString() will show origin is active
+    // DO NOT change origin obhject or Child class
+
+    const origin = {state: 'origin is active'};
+
+    class Child {
+        constructor() {
+            this.state = 'child is active';
+        }
+
+        toString() {
+            return this.state;
+        }
+    }
+
+    // ========== DOM and context ==========
+
+    function buttonClick(e) {
+        this.innerHTML = 'already Been clicked';
+        // same as:
+        // e.target.innerHTML = 'already Been clicked';
+    }
+
+    const buttons = document.querySelectorAll('button:not(.fetch)');
+
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', buttonClick, false);
+    }
+    // ========== Fetch ==========
+    const fetchButton = document.querySelector('button.fetch');
+
+    // fetchButton.onclick  = function () {
+    //     console.log('fetch users');
+
+    //     fetch('https://api.github.com/users')
+    //         .then(function(response) {
+    //             return response.json();
+    //         })
+    //         .then(function(myJson) {
+    //             console.log(myJson);
+    //             return myJson;
+    //         })
+    //         .then(function(users) {
+    //             document.querySelector('.output').innerHTML = users[0];
+    //         });
+    // }
+
+    function addUser(userData) {
+        const userNode = document.createElement('article');
+        userNode.className = 'user-card';
+
+        userNode.innerHTML = `
+            <div>
+                <img src="${userData.avatar_url}">
+            </div>
+            <p>
+                <a target="_blank" href="${userData.html_url}"> 
+                    ${userData.login}
+                </a>
+            </p>
+        `;
+        document.querySelector('.output').appendChild(userNode);
+    }
+
+    fetchButton.onclick = function () {
+        console.log('fetch users');
+
+        fetch('https://api.github.com/users')
+            .then(response => response.json())
+
+            .then(function (users) {
+                users.forEach(user => {
+                    console.log(user);
+                    addUser(user);
+                });
+            });
+    }
+
+</script>
+</body>
+
+</html>
