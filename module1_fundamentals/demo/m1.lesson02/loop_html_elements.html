@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>HTML elements loop</title>
+    <title>Flex Demo</title>
     <meta charset="UTF-8">
     <meta name="author" content="Yuval Bar Levi">
     <meta name="keywords" content="HTML,CSS,JavaScript">
@@ -12,18 +13,41 @@
         }
     </style>
 </head>
+
 <body>
-<ul>
-    <li>item</li>
-    <li>item</li>
-    <li>item</li>
-    <li>item</li>
-    <li>item</li>
-    <li>item</li>
-    <li>item</li>
-    <li>item</li>
-    <li>item</li>
-    <li>item</li>
-</ul>
+    <ul>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+    </ul>
+    <script>
+        // const items = document.querySelectorAll('li');
+
+        // const callback = function (item, index) {
+        //     item.innerHTML = 'mississipi ' + (index + 1);
+        // }
+        // document.querySelectorAll('li').forEach(callback);
+
+        // document.querySelectorAll('li').forEach((item, index) => {
+        //     item.innerHTML = 'mississipi ' + (index + 1);
+        // });
+
+
+        const listElm = document.querySelector('ul');
+
+        const arrFromList = Array.from(listElm.children);
+
+        arrFromList.forEach(function (item, i) {
+            item.innerHTML = 'mississipi ' + i;
+        });
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Flex Demo</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            display: flex;
+            justify-content: center
+        }
+
+        .row {
+            display: flex;
+            /* width: 400px; */
+        }
+
+        .row>button {
+            flex: 1;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <main>
+        <div class="row">
+            <button onclick="toggle('enc')">Encryption</button>
+            <button onclick="toggle('dec')">Decryption</button>
+        </div>
+        <div>
+            <section id="enc-section" class="column">
+                <h1>Encryption</h1>
+                <label for="enc-key">Key</label>
+                <input type="text" id="enc-key">
+                <button>Encrypt</button>
+                <p></p>
+            </section>
+
+            <section id="dec-section" class="column hidden">
+                <h1>Decryption</h1>
+                <label for="enc-key">Key</label>
+                <input type="text" id="enc-key">
+                <button>Decrypt</button>
+                <p></p>
+            </section>
+        </div>
+    </main>
+    <script>
+        'use strict'
+        function toggle(type) {
+            switch (type) {
+                case 'enc':
+                    document.querySelector('#dec-section').classList.add('hidden')
+                    document.querySelector('#enc-section').classList.remove('hidden')
+                    break;
+
+                case 'dec':
+                    document.querySelector('#enc-section').classList.add('hidden')
+                    document.querySelector('#dec-section').classList.remove('hidden')
+                    break;
+            }
+        }
+
+    </script>
+</body>
