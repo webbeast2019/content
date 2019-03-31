@@ -1,0 +1,12 @@
+{
+  "name": "nodemon-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mytypescript.ts.js",
+  "scripts": {
+    "start": "ts-node mytypescript.ts",
+    "dev": "nodemon --exec ts-node mytypescript.ts"
+  },
+  "author": "",
+  "license": "ISC"
+}
