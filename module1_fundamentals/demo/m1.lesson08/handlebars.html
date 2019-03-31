@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title> Working with libraries - Handlebars</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js'></script>
+</head>
+<style>
+    body {
+        padding: 10px;
+        font-family: Impact, Charcoal, sans-serif;
+    }
+
+    h1 {
+        margin: 0 0 10px 0;
+        padding: 5px;
+        font-size: 24px;
+        background-color: #7bdaff;
+        color: #000;
+    }
+
+    article {
+        margin: 10px 0;
+        border: 1px #3e3e3e solid;
+        padding: 10px;
+    }
+
+</style>
+<body>
+
+<script id='article-template' type='text/x-handlebars-template'>
+    <article>
+        <h2>{{title}}</h2>
+        <blockquote>
+            {{body}}...
+        </blockquote>
+    </article>
+</script>
+
+<script id='multi-article-template1' type='text/x-handlebars-template'>
+    {{#each entries}}
+    <article>
+        <h2>
+            <a href="{{src}}" target="_blank">
+                {{title}} (multi-article-template1)
+            </a>
+        </h2>
+        <blockquote>
+            {{body}}...
+        </blockquote>
+    </article>
+    {{/each}}
+</script>
+
+
+<script id='multi-article-template2' type='text/x-handlebars-template'>
+    {{#each this}}
+    <article>
+        <h2>{{title}} (multi-article-template2)</h2>
+        <blockquote>
+            {{body}}...
+        </blockquote>
+    </article>
+    {{/each}}
+</script>
+
+<h1>
+    JS news!
+</h1>
+<div class='output'></div>
+
+
+<script>
+    'use strict';
+    const articleHtml = document.getElementById('article-template').innerHTML;
+    const articleTmpl = Handlebars.compile(articleHtml);
+
+    const data = [
+        {
+            title: 'JavaScript Modules Worth Using',
+            body: 'A quick breakdown of the most useful JavaScript modules that I find myself using over and over again.',
+            src: 'https://hackernoon.com/javascipt-modules-worth-using-9aa7301e41ac'
+        },
+        {
+            title: 'Top JavaScript VSCode Extensions for Faster Development',
+            body: 'VSCode is an open-source, cross-platform editor that has become a favourite of Web programmers',
+            src: 'https://codeburst.io/top-javascript-vscode-extensions-for-faster-development-c687c39596f5'
+        },
+    ];
+    // let context = {title: 'My New Post', body: 'This is my first post!'};
+    // const outputHTML = articleTmpl(data[0]) + articleTmpl(data[1]);
+    // document.querySelector('.output').innerHTML = outputHTML;
+
+    // template loop - example 1
+    // const multiArticleTmpl1 = Handlebars.compile(document.getElementById('multi-article-template1').innerHTML);
+    // document.querySelector('.output').innerHTML = multiArticleTmpl1({entries: data});
+
+    // template loop - example 2
+       const multiArticleTmpl2 = Handlebars.compile(document.getElementById('multi-article-template2').innerHTML);
+       document.querySelector('.output').innerHTML = multiArticleTmpl2(data);
+
+</script>
+</body>
+</html>

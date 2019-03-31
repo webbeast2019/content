@@ -79,6 +79,42 @@ transform: rotateY(0);
 ###
 
 ---
+### NEVER use *eval*
+```
+var sum = t + "=" + eval(t);
+```
+
+---
+### Do not use *var*
+```
+var sum = t + "=" + eval(t);
+```
+
+---
+### Initialize each parameter in a seperate row
+Don't do this:
+```
+let totalNum, currentNum, calcAction, ans;
+```
+
+---
+### Strive to have 1 return om a function when possible
+Don't do this:
+```
+function isBiggerThanFive(value) {
+    if(value > 5) {
+        return true;
+    } else {
+        return false;
+    }
+}
+```
+---
+### Strive to have short functions
+* 5 - 10 line is prreferable
+* No more than 20 lines
+
+---
 ### function declaration / expression
 When functions are constants - prefer function [declarations](https://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/)
 ```
