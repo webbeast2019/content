@@ -85,10 +85,25 @@ var sum = t + "=" + eval(t);
 ```
 
 ---
+### Avoid using *delete*
+you can set to null instead if needed
+```
+const person = {
+  firstname: 'John',
+  lastname: 'Doe'
+}
+// bad
+delete person.firstname;
+// good
+person.firstname = null;
+```
+
+---
 ### Do not use *var*
 ```
 var sum = t + "=" + eval(t);
 ```
+
 
 ---
 ### Initialize each parameter in a seperate row
@@ -127,6 +142,29 @@ const foo = function (){}
 // expression - variable
 // (only when function may be replaced)
 let foo = function (){}
+```
+
+
+---
+### readability
+```
+// bad
+const queryKey = reqUrl.query.split('&')[0].split('=')[0];
+
+// good
+const queryParams = reqUrl.query.split('&')[0]
+const queryKey = queryParams.split('=')[0];
+```
+
+---
+### readability
+```
+// bad
+if (parseInt(index) >= 1 && parseInt(index) <= 100) {...}
+
+// good
+index = parseInt(index);
+if (index >= 1 && index <= 100) {...}
 ```
 
 ---
