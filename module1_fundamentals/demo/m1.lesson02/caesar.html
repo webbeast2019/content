@@ -55,18 +55,19 @@
             </section>
         </div>
     </main>
+
     <script>
-        'use strict'
+        'use strict';
         function toggle(type) {
             switch (type) {
                 case 'enc':
-                    document.querySelector('#dec-section').classList.add('hidden')
-                    document.querySelector('#enc-section').classList.remove('hidden')
+                    document.querySelector('#dec-section').classList.add('hidden');
+                    document.querySelector('#enc-section').classList.remove('hidden');
                     break;
 
                 case 'dec':
-                    document.querySelector('#enc-section').classList.add('hidden')
-                    document.querySelector('#dec-section').classList.remove('hidden')
+                    document.querySelector('#enc-section').classList.add('hidden');
+                    document.querySelector('#dec-section').classList.remove('hidden');
                     break;
             }
         }
