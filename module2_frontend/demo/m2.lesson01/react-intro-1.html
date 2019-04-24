@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React Intro</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .steps {
+            padding: 5px;
+            background-color: lightgray;
+        }
+
+        #root {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="steps">
+    <ul>
+        <li>
+            <a href="https://reactjs.org/docs/add-react-to-a-website.html#add-react-in-one-minute" target="_blank">
+                Add React in One Minute
+            </a>
+        </li>
+        <li>
+            <a>Webstorm: Change 'Javascript' to 'JSX'</a>
+        </li>
+        <li>
+            Hello world with <a href="https://reactjs.org/docs/react-api.html#createelement" target="_blank">React.createElement</a>.
+            react <a href="https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605" target="_blank">basic
+            example</a>
+        </li>
+        >
+        <li>
+            Add <a href="https://babeljs.io/" target="_blank">babel</a> script - so we can use jsx</a>
+        </li>
+    </ul>
+</div>
+<div id="root"></div>
+
+<script>
+  'use strict';
+  ReactDOM.render(
+    React.createElement('div', null, 'Hello world!'),
+    document.getElementById('root')
+  );
+
+  // 1. create App class which implements render method
+  // 2. change React.createElement(...) to use App class - React.createElement(App)
+  // 3. add on click event - https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605
+  // 3. try adding nested react elements (add <p>nested<p> to the main div
+  // class App extends React.Component {
+  //     render() {
+  //         return React.createElement(
+  //             'div',
+  //             null,
+  //             'Hello from App!'
+  //         );
+  //     }
+  // }
+</script>
+</body>
+</html>
