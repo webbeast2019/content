@@ -15,7 +15,7 @@
     "m1.10": "reveal-md ./module1_fundamentals/m1.lesson10.md  --theme league",
     "m1.11": "reveal-md ./module1_fundamentals/m1.lesson11.md  --theme night",
     "m2.1": "reveal-md ./module2_frontend/m2.lesson01.md",
-    "m2.2": "reveal-md ./module2_frontend/m2.lesson02.md  --theme league",
+    "m2.2": "reveal-md ./module2_frontend/m2.lesson02.md  --theme serif",
     "m2.3": "reveal-md ./module2_frontend/m2.lesson03.md  --theme serif",
     "m2.4": "reveal-md ./module2_frontend/m2.lesson04.md  --theme sky",
     "m2.5": "reveal-md ./module2_frontend/m2.lesson05.md  --theme night",
