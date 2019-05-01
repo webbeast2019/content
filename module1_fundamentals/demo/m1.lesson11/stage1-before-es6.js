@@ -22,16 +22,8 @@ function Teacher(first, last, age, gender, subject) {
     this.subject = subject;
 }
 
-// creating a prototype based on Person
-Teacher.prototype = Object.create(Person.prototype);
-Teacher.prototype.constructor = Teacher;
-
 Teacher.prototype.numOfTeachers = 0;
 Teacher.prototype.salary = 10000;
-// override Person.toString
-Teacher.prototype.toString = function () {
-    return this.__proto__.__proto__.toString() + 'and I am a teacher';
-};
 
 // task 1: add toString for Teacher (can you use Person.prototype.toString?)
 // task 2: add student class
