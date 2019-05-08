@@ -71,10 +71,17 @@ class Student extends Person {
 // Professor David Levi Trainee is: Sarit Hadad
 // Professor Moshe Cohen Trainee is: Moshe Sharet
 
-const teacher1 = new Professor('David', 'Levi', 40, 'M', 'Javascript');
-const teacher2 = new Trainee('Sarit', 'Hadad', 35, 'F', 'HTML');
-const student1 = new Student('Dudu', 'Aaharon', 28, 'M', ['Javascript', 'HTML']);
+const student1 = new Student(
+  'Dudu', 'Aaharon', 28, 'M', ['Javascript', 'HTML']);
 
+const teacher1 = new Trainee(
+  'Sarit', 'Hadad', 35, 'F', 'HTML');
+
+const teacher2 = new Professor(
+  'David', 'Levi', 40, 'M', 'Javascript', teacher2);
+
+// connect Trainee to Professor
+teacher1.professor = teacher1;
 const DB = {
     teachers: [teacher1, teacher2],
     students: [student1], // TODO: add student2, student3

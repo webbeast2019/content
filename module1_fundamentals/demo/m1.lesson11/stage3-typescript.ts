@@ -3,7 +3,7 @@
 type genderType = 'M' | 'F'
 
 // or
-enum genderEnum { Male, Female };
+enum genderEnum { Male, Female }
 
 abstract class Person {
     private readonly firstName: string;
@@ -12,7 +12,7 @@ abstract class Person {
     public gender: genderType;
 
     //TODO: add types
-    protected constructor(first: string, last, age, gender) {
+    protected constructor(first: string, last: string, age: number, gender: genderType) {
         // private
         this.firstName = first;
         this.lastName = last;
@@ -21,26 +21,27 @@ abstract class Person {
         this.gender = gender;
     }
 
-    getName() {
+    getName(): string {
         return this.firstName + ' ' + this.lastName;
     }
 
-    toString() {
+    toString(): string {
         const genderStr = (this.gender === 'M') ? 'Male' : 'Female';
-        return `${this.getName()} is  ${this.age} ${genderStr}`;
+        return `${this.getName()} is  ${this.age} ${genderStr}.`;
     };
 }
 
 abstract class Teacher extends Person {
     private readonly subject;
 
-    //TODO: add types
-    protected constructor(first, last, age, gender, subject) {
+    protected constructor(first: string, last: string, age: number, gender: genderType, subject: string) {
         super(first, last, age, gender);
         this.subject = subject; // single string
     }
 
-    //TODO: override toString
+    toString(): string {
+        return super.toString() + `Teaching: ${this.subject}.`;
+    }
 }
 
 class Student extends Person {
@@ -49,30 +50,76 @@ class Student extends Person {
 
 class Professor extends Teacher {
 
+    private trainee: Trainee;
+
+    constructor(first: string, last: string, age: number, gender: genderType, subject: string) {
+        super(first, last, age, gender, subject);
+    }
+
+    setTrainee(trainee: Trainee) {
+        this.trainee = trainee;
+    }
+
+    getTraineeName(): string {
+        return (this.trainee) ? this.trainee.getName() : null;
+    }
+
+    toString(): string {
+        const traineeStr = (this.trainee) ? `trainee: ${this.trainee.getName()}` : '';
+        return super.toString() + traineeStr;
+    }
 }
 
 class Trainee extends Teacher {
-    // Implement
+    private trainer: Professor;
+
+    constructor(first: string, last: string, age: number, gender: genderType, subject: string) {
+        super(first, last, age, gender, subject);
+    }
+
+    setProfessor(trainer: Professor) {
+        this.trainer = trainer;
+    }
+
+    toString(): string {
+        const traineeStr = (this.trainer) ? `trainer: ${this.trainer.getName()}` : '';
+        return super.toString() + traineeStr;
+    }
 }
 
 // const teacher1 = new Person('Sarit', 'Hadad', 35, 'F');  // cannot create instance of abstract class
-const teacher2 = new Professor('Sarit', 'Hadad', 35, 'F', 'HTML');
-
-// teacher2.firstName // cannot access private members
+const teacher1 = new Professor('Sarit', 'Hadad', 35, 'F', 'HTML');
+const teacher2 = new Professor('Omer', 'Adam', 30, 'M', 'Javascript');
+const teacher3 = new Trainee('Moshe', 'Perets', 41, 'M', 'Javascript');
+teacher2.setTrainee(teacher3);
+teacher3.setProfessor(teacher2);
 
 interface DB {
     teachers: Array<Teacher>,
+
     // students: Array<Student>,
     getAllProfessors(): Array<Professor>,
-    // getTrainingPairsStr(): string
+
+    getTrainingPairsStr(): string
 }
 
 function createDB(teachers: Array<Teacher>, student: Array<Student>): DB {
     return {
         teachers: teachers,
         getAllProfessors: function (): Array<Professor> {
-            return teachers;
+            return <Array<Professor>>teachers.filter(t => t instanceof Professor);
+        },
+        getTrainingPairsStr: function (): string {
+            let str = '';
+            this.getAllProfessors().forEach(prof => {
+                const traineeName = prof.getTraineeName();
+                const traineeStr = (traineeName) ? `(${traineeName})` : '';
+                str += `[${prof.getName()}${traineeStr}]`
+            });
+            return str;
         }
-        // TODO: implement
     };
 }
+
+const db = createDB([teacher1, teacher2, teacher3], []);
+console.log(db.getTrainingPairsStr());
