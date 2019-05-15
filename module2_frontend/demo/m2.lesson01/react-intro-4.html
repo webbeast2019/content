@@ -44,6 +44,10 @@
         <li>
             Create a Todo item, Use <a href="https://babeljs.io/repl" target="_blank">Props</a> to pass data
         </li>
+        <li>
+            Todos - use Array. see <a href="https://reactjs.org/docs/lists-and-keys.html" target="_blank">Lists and
+            Keys</a> to pass data
+        </li>
     </ul>
 </div>
 
@@ -52,36 +56,38 @@
 <script type="text/babel">
   'use strict';
   // tasks:
-  // 1. https://reactjs.org/docs/components-and-props.html
-  // 2. Create a TODO class and use props to pass data. use function form
-  // 3. Extra: is there a way to pass data without using attribute explicitly on Todo item?
-  // class Header extends React.Component {
-  //   render() {
-  //     return (
-  //       <header>
-  //         My Todo list
-  //       </header>
-  //     );
-  //   }
-  // }
+  // 1. Practice: Todos - use Array (first example on 'Lists and Keys' section)
+  // 2. See console. why do we need a 'key?'
+  // 3. read Lists and Keys entire section
+  function Todo({text}) {
+    return (
+      <span>
+        {text}
+      </span>
+    );
+  }
 
-  function Header({text}) {
+  function Header() {
     return (
       <header>
-        {text}
+        My Todo list
       </header>
     );
   }
 
   class TodoList extends React.Component {
     render() {
-      const {text} = this.props;
       return (
         <ul>
-          <li>{text}</li>
-          <li>Call Benny</li>
-          <li>Build react demo</li>
-          <li>Take rest</li>
+          <li>
+            <Todo text="Call Benny"/>
+          </li>
+          <li>
+            <Todo text="Build react demo"/>
+          </li>
+          <li>
+            <Todo text="Take rest"/>
+          </li>
         </ul>
       );
     }
@@ -91,8 +97,8 @@
     render() {
       return (
         <main>
-          <Header text="My Todo list"/>
-          <TodoList text="Walla!"/>
+          <Header/>
+          <TodoList/>
         </main>
       );
     }
