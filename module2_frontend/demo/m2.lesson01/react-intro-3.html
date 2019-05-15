@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React Intro</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .steps {
+            padding: 5px;
+            background-color: lightgray;
+        }
+
+        #root {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="steps">
+    <ul>
+        <li>
+            <a href="https://reactjs.org/docs/add-react-to-a-website.html#add-react-in-one-minute" target="_blank">
+                Add React in One Minute
+            </a>
+        </li>
+        <li>
+            <a>Webstorm: Change 'Javascript' to 'JSX'</a>
+        </li>
+        <li>
+            Hello world with <a href="https://reactjs.org/docs/react-api.html#createelement" target="_blank">React.createElement</a>.
+            react <a href="https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605" target="_blank">basic
+            example</a>
+        </li>
+        >
+        <li>
+            Add <a href="https://babeljs.io/repl" target="_blank">babel</a> script - so we can use <a></a>jsx
+        </li>
+        <li>
+            Create a Todo item, Use <a href="https://babeljs.io/repl" target="_blank">Props</a> to pass data
+        </li>
+    </ul>
+</div>
+
+<div id="root"></div>
+
+<script type="text/babel">
+  'use strict';
+  // tasks:
+  // 1. https://reactjs.org/docs/components-and-props.html
+  // 2. Create a TODO class and use props to pass data. use function form
+  // 3. Extra: is there a way to pass data without using attribute explicitly on Todo item?
+  // class Header extends React.Component {
+  //   render() {
+  //     return (
+  //       <header>
+  //         My Todo list
+  //       </header>
+  //     );
+  //   }
+  // }
+
+  function Header() {
+    return (
+      <header>
+        My Todo list
+      </header>
+    );
+  }
+
+  class TodoList extends React.Component {
+    render() {
+      return (
+        <ul>
+          <li>Call Benny</li>
+          <li>Build react demo</li>
+          <li>Take rest</li>
+        </ul>
+      );
+    }
+  }
+
+  class App extends React.Component {
+    render() {
+      return (
+        <main>
+          <Header/>
+          <TodoList/>
+        </main>
+      );
+    }
+  }
+
+  ReactDOM.render(
+    <App/>,
+    document.getElementById('root')
+  );
+</script>
+</body>
+</html>
