@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Items</title>
+    <script src="build_redux_final.js"></script>
+</head>
+<body>
+<ul id="list">
+
+</ul>
+<button onclick="clearItems()">Clear items</button>
+<script>
+  function render(items, selectCallback) {
+    // create html string
+    let innerHTMLStr = '';
+    items.forEach((item, index) => {
+      innerHTMLStr += `<li><input type="radio" value="${index}"><label>${item}</label></li>`;
+    });
+
+    // add items to DOM
+    const listElement = document.querySelector('ul#list');
+    listElement.innerHTML = innerHTMLStr;
+    const listItems = listElement.querySelectorAll('li');
+
+    // assign change callback
+    Array.prototype.forEach.call(listItems, (listItem) => {
+      listItem.addEventListener('change', selectCallback);
+    });
+  }
+
+  // store initial state
+  const initState = {
+    items: ['Write App with Redux', 'Fix Car', 'Get Beer'],
+    selected: -1
+  };
+
+  const myStore = window.store = createStore(itemsReducer, initState);
+  myStore.subscribe((state, action) => {
+    render(state.items);
+  });
+  render(myStore.getState().items);
+
+  // implement clear all button
+  // add ui to select item, add item and delete items
+
+  // clear all items - use redux!
+  function clearItems() {
+
+  }
+</script>
+
+</body>
+</html>
