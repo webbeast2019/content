@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Items</title>
+    <script src="build_redux_final.js"></script>
+</head>
+<body>
+<ul id="list">
+
+</ul>
+<input id="newItem">
+<button onclick="addItem()">Add</button>
+<button onclick="deleteSelectItem()">Delete Selected Item</button>
+<button onclick="clearItems()">Clear items</button>
+<script>
+  function render(items, selectCallback) {
+    // create html string
+    let innerHTMLStr = '';
+    items.forEach((item, index) => {
+      innerHTMLStr += `<li><input name="items" type="radio" value="${index}" id="item${index}"><label for="item${index}">${item}</label></li>`;
+    });
+
+    // add items to DOM
+    const listElement = document.querySelector('ul#list');
+    listElement.innerHTML = innerHTMLStr;
+    const listItems = listElement.querySelectorAll('li');
+
+    // assign change callback
+    Array.prototype.forEach.call(listItems, (listItem, index) => {
+      listItem.addEventListener('change', () => selectCallback(index));
+    });
+  }
+
+  // store initial state
+  const initState = {
+    items: ['Write App with Redux', 'Fix Car', 'Get Beer', 'Get Bear'],
+    selected: -1
+  };
+
+  const myStore = window.store = createStore(itemsReducer, initState);
+  myStore.subscribe((state, action) => {
+    console.log(`state has change because of action ${action.type}. new state: `, state);
+    if (state.items.length !== document.querySelectorAll('ul#list>li').length) {
+      console.log('Render!');
+      render(state.items, selectItem);
+    }
+  });
+  render(myStore.getState().items, selectItem);
+
+  // clear all items
+  function clearItems() {
+    myStore.dispatch({
+      type: 'CLEAR_ALL_ITEMS'
+    });
+  }
+
+  function addItem() {
+    const inputEl = document.querySelector('#newItem');
+    myStore.dispatch({
+      type: 'ADD_ITEM',
+      payload: inputEl.value
+    });
+    inputEl.value = '';
+  }
+
+  function selectItem(value) {
+    myStore.dispatch({
+      type: 'SELECT_ITEM',
+      payload: value
+    });
+  }
+
+  function deleteSelectItem(value) {
+    myStore.dispatch({
+      type: 'DELETE_SELECTED_ITEM',
+      payload: value
+    });
+  }
+</script>
+
+</body>
+</html>
