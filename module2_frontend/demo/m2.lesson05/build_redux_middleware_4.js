@@ -1,8 +1,14 @@
 // task 1
 'use strict';
 
+// items initial state
+const initState = {
+  items: ['Tea cup', 'Coffee mug'],
+  selected: -1
+};
+
 // store creator
-function createStore(reducer, initState, middleware) {
+function createStore(reducer, initState, middlewareArray) {
   let state = initState;
   const listeners = [];
 
@@ -21,11 +27,24 @@ function createStore(reducer, initState, middleware) {
     listeners.push(callbackFn);
   }
 
-  return {
+  let store = {
     getState: getState,
     dispatch: dispatch,
     subscribe: subscribe
   };
+
+  // Naive implementation of applyMiddleware
+  function applyMiddleware(store, middlewares) {
+    middlewares = middlewares.slice();
+    let dispatch = store.dispatch;
+    middlewares.forEach(middleware => (dispatch = middleware(store)(dispatch)));
+    return Object.assign({}, store, {dispatch})
+  }
+
+  if (middlewareArray && Array.isArray(middlewareArray)) {
+    store = applyMiddleware(store, middlewareArray)
+  }
+  return store;
 }
 
 // our only reducer
@@ -70,11 +89,13 @@ function logger(store) {
   }
 }
 
-function crashReporterlogger(store) {
+function crashReportLogger(store) {
   return function (next) {
     return function (action) {
       try {
-        return next(action);
+        const res = next(action);
+        console.log('No errors');
+        return res;
       } catch (e) {
         console.error('Error on action: ', action, e);
       }
@@ -94,6 +115,7 @@ function crashReporterlogger(store) {
     initState,
     [logger, crashReportLogger]
   );
+
 
   myStore.dispatch({
     type: "ADD_ITEM",
