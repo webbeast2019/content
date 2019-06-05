@@ -15,7 +15,11 @@
     // create html string
     let innerHTMLStr = '';
     items.forEach((item, index) => {
-      innerHTMLStr += `<li><input type="radio" value="${index}"><label>${item}</label></li>`;
+      innerHTMLStr += `
+        <li>
+            <input type="radio" value="${index}">
+            <label>${item}</label>
+         </li>`;
     });
 
     // add items to DOM
