@@ -30,6 +30,7 @@
     "m2.14": "reveal-md ./module2_frontend/m2.lesson14.md  --theme night",
     "m2.15": "reveal-md ./module2_frontend/m2.lesson15.md  --theme night",
     "m2.16": "reveal-md ./module2_frontend/m2.lesson16.md  --theme simple",
+    "m3.0": "reveal-md ./module3_backend/BASIC-CONCEPTS.md  --theme night",
     "m3.1": "reveal-md ./module3_backend/m3.lesson01.md  --theme solarized",
     "m3.2": "reveal-md ./module3_backend/m3.lesson02.md  --theme serif",
     "m3.3": "reveal-md ./module3_backend/m3.lesson03.md  --theme serif",
