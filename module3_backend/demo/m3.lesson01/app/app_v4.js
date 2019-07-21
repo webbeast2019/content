@@ -21,10 +21,11 @@ if (validFlags) {
     }
 
     const input = data.split(os.EOL);
+    // if last is EOL (result in empty string) - remove it
     if(input[input.length -1] === '') {
       input.pop();
     }
-
+    // go through each line
     const output = [];
     input.forEach(str => output.push(calculus.processStr(str)));
 
