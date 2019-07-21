@@ -1,4 +1,3 @@
-// import 'fs'
 var moshe = 'Rabenu';
 // try const instead of var
 // const moshe = 'Rabenu';
@@ -18,5 +17,5 @@ if(typeof window === 'object') {
 } else {
   console.log(`Node global.foo: ${global.foo}`);
   module.exports.foo = foo;
-  console.log(`Node module.exports: ${global.module.exports}`);
+  console.log(`Node module.exports: ${module.exports}`);
 }
