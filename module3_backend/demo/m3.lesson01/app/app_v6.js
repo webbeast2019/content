@@ -3,7 +3,6 @@ const fs = require('fs');
 const os = require('os');
 const http = require('http');
 
-
 const inputFileName = process.argv[2];
 const outputFileName = process.argv[3];
 
