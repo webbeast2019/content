@@ -49,5 +49,7 @@
     "m5.3": "reveal-md ./module5_from_localhost_to_production/m5.lesson03.md  --theme night",
     "m5.4": "reveal-md ./module5_from_localhost_to_production/m5.lesson04.md  --theme night"
   },
-  "dependencies": {}
+  "dependencies": {
+    "multer": "^1.4.2"
+  }
 }
