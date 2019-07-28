@@ -1,4 +1,5 @@
 const express = require('express');
+
 const app = express();
 
 const multer  = require('multer');
@@ -9,11 +10,11 @@ const upload = multer({ dest: 'uploads/' });
 // see: https://www.npmjs.com/package/multer#storage
 // const storage = multer.diskStorage({
 //   destination: 'uploads/',
-//   filename: (req, file, cb) => {
-//     cb(null, file.originalname);
+//   filename: function (req, file, cb) {
+//     cb(null, file.originalname)
 //   }
-// });
-// const upload = multer({ storage: storage });
+// })
+// const upload = multer({ storage: storage })
 
 // https://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
