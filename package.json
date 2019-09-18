@@ -43,12 +43,10 @@
     "m4.1": "reveal-md ./module4_advanced_dev/m4.lesson01.md  --theme serif",
     "m4.2": "reveal-md ./module4_advanced_dev/m4.lesson02.md  --theme night",
     "m4.3": "reveal-md ./module4_advanced_dev/m4.lesson03.md  --theme night",
-    "m4.6": "reveal-md module4_advanced_dev/m4.lesson06_1.md  --theme night",
-    "m4.7": "reveal-md ./module4_advanced_dev/m4.lesson07.md  --theme night",
-    "m5.1": "reveal-md ./module5_from_localhost_to_production/m5.lesson01.md  --theme serif",
-    "m5.2": "reveal-md ./module5_from_localhost_to_production/m5.lesson02.md  --theme sky",
-    "m5.3": "reveal-md ./module5_from_localhost_to_production/m5.lesson03.md  --theme night",
-    "m5.4": "reveal-md ./module5_from_localhost_to_production/m5.lesson04.md  --theme night"
+    "m4.4": "reveal-md ./module4_advanced_dev/m4.lesson04.md  --theme solarized",
+    "m4.5": "reveal-md ./module4_advanced_dev/m4.lesson05.md  --theme night",
+    "m4.5": "reveal-md ./module4_advanced_dev/m4.lesson06.md  --theme night",
+    "m4.5": "reveal-md ./module4_advanced_dev/m4.lesson07.md  --theme night"
   },
   "dependencies": {
     "multer": "^1.4.2"
