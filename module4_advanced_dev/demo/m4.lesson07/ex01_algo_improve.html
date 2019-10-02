@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EX01 algo</title>
+</head>
+<body>
+<p>
+  <button onclick="howManyValidTokens()">Calculate</button>
+</p>
+<pre id="output"></pre>
+
+<script>
+  "use strict";
+  // change the substring value (to something below 11)
+  // and see what happen when you press the button
+  const createToken = () => Math.random().toString(15).substring(11);
+
+  // tokensDB is random structure of tokens (total 1000 * 5000 tokens)
+  const tokensDB = [];
+  for (let i = 0; i < 1000; i++) {
+    const collection = [];
+    for (let i = 0; i < 5000; i++) {
+      collection.push(createToken())
+    }
+    tokensDB.push(collection);
+  }
+
+  // This Array contain the user tokens
+  const myTokens = [];
+  for (let i = 0; i < 10; i++) {
+    myTokens.push(createToken())
+  }
+
+  // A valid token is a token which exist in tokensDB
+  // Find how many of the user's token are valid
+  function howManyValidTokens() {
+    console.time('howManyTokens');
+    let counter = 0;
+    myTokens.forEach(myToken => {
+      tokensDB.forEach(collection => {
+        collection.forEach(token => {
+          if (token === myToken) {
+            counter++;
+          }
+        })
+      })
+    });
+    console.timeEnd('howManyTokens');
+    document.getElementById('output').innerHTML = counter;
+  }
+</script>
+</body>
+</html>

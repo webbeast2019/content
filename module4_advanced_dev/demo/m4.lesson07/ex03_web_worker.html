@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web worker - exercise 01</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Fibonacci series</h1>
+<h2>
+  Mission: externilize Fibonacci calculation to a web worker
+</h2>
+<h3>
+  Bonus: do not include the fibonacci function in the webworker file
+</h3>
+<p>For simualting heavy calculation Try get fibo of 987654321, or 2003004005 </p>
+<p>
+  <button class="btn" onclick="doWork()">DO fibonacci</button> </p>
+<P>
+  INPUT: <input id="fiboInput" type="number" value="987654321">
+</P>
+<p>
+  OUTPUT: <span id="fiboOutput" ></span>
+</p>
+<p>
+  Just a slider: <input type="range">
+</p>
+<script>
+	"use strict";
+
+	function doWork() {
+		const input = parseInt( document.getElementById('fiboInput').value, 10);
+		const output = fibonacci(input);
+		console.log('output is ' + output);
+		document.getElementById('fiboOutput').innerText = output;
+	}
+
+	// get the N number in fibonacci series
+	function fibonacci(num) {
+		let a = 1;
+		let b = 0;
+		let temp;
+
+		while (num >= 0){
+			temp = a;
+			a = a + b;
+			b = temp;
+			num--;
+		}
+		return b;
+	}
+</script>
+</body>
+</html>

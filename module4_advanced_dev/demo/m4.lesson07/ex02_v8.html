@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>V8 Optimization - exercise 01</title>
+</head>
+<body>
+
+<h1>Ses console logs for run time statistics</h1>
+<p><button onclick="doWorkNumberType()">Do work Number Type</button> (Will Optimized)</p>
+<p><button onclick="doWorkStringType()">Do work String Type</button> (Will Optimized)</p>
+<p><button onclick="doWorkDynamicType()"> work Dynamic Type</button> (Will Optimized and then De-optimized)</p>
+<p><button onclick="doWorkNotOptimizable()">work not Optimizable </button> (Function cannot be optimized)</p>
+<script>
+	// see what happens when you change it to "use strict"
+	"don't use strict"
+	function add(a) {
+// uncomment to investigate
+//    const obj = {
+//        get prop() {
+//            return 1;
+//        },
+//        // getProp: function () {
+//        //     return 1;
+//        // }
+//    };
+		return a+a;
+	}
+
+	// this function will optimized into native code
+	function doWorkNumberType() {
+		console.time('doWorkStaticType');
+		const a = 12341234;
+		const b = 56785678;
+		for(let i = 0; i < 10000000; i++) {
+			add((i===50000) ? a : b);
+		}
+		console.timeEnd('doWorkStaticType');
+	}
+
+	// this function will optimized into native code
+	function doWorkStringType() {
+		console.time('doWorkStaticType');
+		const a = 'abcd';
+		const b = 'abcd';
+		for(let i = 0; i < 10000000; i++) {
+			add((i===50000) ? a : b);
+		}
+		console.timeEnd('doWorkStaticType');
+	}
+
+	// this function will optimized and later on will de-optimized
+	function doWorkDynamicType() {
+		console.time('doWorkDynamicType');
+		const a = 1234;
+		const b = 'abcd';
+		for(let i = 0; i < 10000000; i++) {
+			add((i===50000) ? a : b);
+		}
+		console.timeEnd('doWorkDynamicType');
+	}
+
+	// this function cannot be optimized (current chrome v61.0.3163.100)
+	function doWorkNotOptimizable() {
+		console.time('doWorkNotOptimizable');
+		with(console) {
+			log('some log');
+			const a = 1234;
+			const b = 5678;
+			for(let i = 0; i < 10000000; i++) {
+				add((i===50000) ? a : b);
+			}
+		}
+		console.timeEnd('doWorkNotOptimizable');
+	}
+
+
+</script>
+</body>
+</html>
